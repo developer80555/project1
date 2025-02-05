@@ -25,7 +25,7 @@ const Hero = () => {
         <h1 className="text-red-600 text-2xl md:text-3xl">
           Website Development and Digital Marketing Company in Bareilly
         </h1>
-        <p className="max-md:text-sm">
+        <p className="">
           Digi Friction is the most trusted advertising agency in Bareilly that
           deals in web designing, website development, app development, graphics
           designing, digital marketing, and social media marketing services. We
@@ -36,7 +36,7 @@ const Hero = () => {
           website development, graphics designing, and online advertising
           services.
         </p>
-        <p className="max-md:text-sm">
+        <p className="">
           Digi Friction is the most trusted advertising agency in Bareilly that
           deals in web designing, website development, app development, graphics
           designing, digital marketing, and social media marketing services. We

@@ -18,13 +18,13 @@ const Navbar = () => {
 
   return (
     <div className="shadow-lg sticky  top-0 right-0 bg-white z-10">
-      <nav className="top-0 container mx-auto flex items-center justify-between relative max-md:px-3 max-md:py-1 ">
+      <nav className="top-0 container mx-auto flex items-center justify-between relative p-2  px-3 ">
         <Image
           src={assets.logo}
           height={0}
           width={0}
           alt="logo"
-          className="w-[110px] md:w-[150px]"
+          className="w-[130px] md:w-[160px]"
         />
 
         <ul className="hidden md:flex items-center justify-center gap-2">
@@ -100,7 +100,7 @@ const Navbar = () => {
               src={assets.close}
               width={10}
               height={10}
-              className="w-3"
+              className="w-5"
               alt="close"
             />
           ) : (
@@ -108,7 +108,7 @@ const Navbar = () => {
               src={assets.openMenu}
               width={10}
               height={10}
-              className="w-3"
+              className="w-5"
               alt="close"
             />
           )}
@@ -132,7 +132,7 @@ const Navbar = () => {
               } `}
             >
               <p className="btn">Services</p>
-              <span className="ml-2">{isServicesOpen ? "▲" : "▼"}</span>
+              <span className="ml-2 ">{isServicesOpen ? "▲" : "▼"}</span>
             </button>
             {isServicesOpen && (
               <ul className="ml-6">

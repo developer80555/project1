@@ -58,7 +58,7 @@ const Footer = () => {
         </div>
       </div>
       <div className="bg-red-700 py-5 md:py-8">
-        <div className=" container mx-auto">
+        <div className=" container mx-auto max-md:text-center max-md:px-2">
           <p>@ Digi Friction. All Right Reserved.</p>
         </div>
       </div>
