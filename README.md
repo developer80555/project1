@@ -34,3 +34,31 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+
+<!-- Courser Page  -->
+
+const toggleCourses = () => {
+setIsCoursesOpen(!isCoursesOpen), setIsServicesOpen(false);
+};
+
+<button
+onClick={toggleCourses}
+className={`flex items-center w-full py-2 ${
+                isCoursesOpen ? "bg-gray-200" : ""
+              } `} >
+<p className="btn">Courses</p>
+<span className="ml-2">{isCoursesOpen ? "▲" : "▼"}</span>
+</button>
+{isCoursesOpen && (
+<ul className="ml-6">
+<li className="py-2 hover:text-black">
+<Link href={"/courses/course1"}>Course 1</Link>
+</li>
+<li className="py-2 hover:text-black">
+<Link href={"/courses/course2"}>Course 2</Link>
+</li>
+<li className="py-2 hover:text-black">
+<Link href={"/courses/course3"}>Course 3</Link>
+</li>
+</ul>
+)}

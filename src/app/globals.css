@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 nav li{
-    padding: 16px 8px;
+    padding: 20px 8px;
     font-size: 14px;
 }
 li::first-letter{
@@ -20,6 +20,16 @@ li::first-letter{
     font-weight: bold;
 }
 
+.service li{
+    padding: 10px 0;
+    font-weight: bold;
+}
+.mobile-menu li{
+    padding: 8px 0px ;
+}
+.mobile-menu li:Hover{
+    color: black;
+}
 body{
     font-family: 'Roboto Condensed';
     font-style: normal;

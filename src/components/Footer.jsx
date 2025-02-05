@@ -23,43 +23,45 @@ const Footer = () => {
           </ul>
         </div>
         <div className="p-3 md:p-4 flex flex-col gap-2">
-          <p className="font-semibold max-sm:text-sm">IMPORTENT LINKS</p>
+          <p className="font-semibold max-sm:text-sm">GET IN TOUCH</p>
           <ul className="flex flex-col gap-2">
             <li>
-              <Link href={"/"}>Career</Link>
+              <Link href={"/"}>Twiter</Link>
             </li>
             <li>
-              <Link href={"/"}>Service</Link>
+              <Link href={"/"}>Linkedin</Link>
             </li>
             <li>
-              <Link href={"/"}>Courses</Link>
+              <Link href={"/"}>Facebook</Link>
             </li>
             <li>
-              <Link href={"/"}>Crivacy & Policy</Link>
+              <Link href={"/"}>Instagram</Link>
             </li>
           </ul>
         </div>
         <div className="p-3 md:p-4 flex flex-col gap-2">
-          <p className="font-semibold max-sm:text-sm">IMPORTENT LINKS</p>
+          <p className="font-semibold max-sm:text-sm">CONTACT US</p>
           <ul className="flex flex-col gap-2">
             <li>
-              <Link href={"/"}>Career</Link>
+              <Link href={"/"}>+91 895088691</Link>
             </li>
             <li>
-              <Link href={"/"}>Service</Link>
+              <Link href={"/"}>Chat on WhatsApp</Link>
             </li>
             <li>
-              <Link href={"/"}>Courses</Link>
+              <Link href={"/"}>Get Directions on Map</Link>
             </li>
             <li>
-              <Link href={"/"}>Crivacy & Policy</Link>
+              <Link href={"/"}>
+                12, Civil Lines, Bareilly, Uttar Pradesh, 243001
+              </Link>
             </li>
           </ul>
         </div>
       </div>
       <div className="bg-red-700 py-5 md:py-8">
-        <div className=" container mx-auto max-md:text-center max-md:px-2">
-          <p>@ Digi Friction. All Right Reserved.</p>
+        <div className=" container mx-auto max-md:text-center max-md:px-2 font-semibold">
+          <p>© Digi Friction. All Rights Reserved.</p>
         </div>
       </div>
     </div>

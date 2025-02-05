@@ -1,24 +1,37 @@
 "use client";
-import { assets, menu } from "@/assets/assets";
+import { assets } from "@/assets/assets";
 import Image from "next/image";
 import Link from "next/link";
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 
 const Navbar = () => {
   const [isServicesOpen, setIsServicesOpen] = useState(false);
-  const [isCoursesOpen, setIsCoursesOpen] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const toggleServices = () => {
-    setIsServicesOpen(!isServicesOpen), setIsCoursesOpen(false);
+    setIsServicesOpen(!isServicesOpen);
   };
-  const toggleCourses = () => {
-    setIsCoursesOpen(!isCoursesOpen), setIsServicesOpen(false);
-  };
+
+  const excludeRef = useRef(null);
+  useEffect(() => {
+    const handleClick = (event) => {
+      // Agr click dropdown ke andar nahi hai tabhi close hoga
+      if (
+        excludeRef.current &&
+        !excludeRef.current.contains(event.target) &&
+        isServicesOpen
+      ) {
+        setTimeout(() => setIsServicesOpen(false), 100); // Small delay to allow toggle click
+      }
+    };
+
+    document.body.addEventListener("click", handleClick);
+    return () => document.body.removeEventListener("click", handleClick);
+  }, [isServicesOpen]);
 
   return (
     <div className="shadow-lg sticky  top-0 right-0 bg-white z-10">
-      <nav className="top-0 container mx-auto flex items-center justify-between relative p-2  px-4 ">
+      <nav className="top-0 container mx-auto flex items-center justify-between relative max-md:p-2  px-4 ">
         <Image
           src={assets.logo}
           height={0}
@@ -44,41 +57,34 @@ const Navbar = () => {
               <span className="ml-2">{isServicesOpen ? "▲" : "▼"}</span>
             </button>
             {isServicesOpen && (
-              <ul className="absolute top-14 right-0 w-[180px] bg-red-500  text-white p-4">
-                <li className="w-full">
-                  <Link href={"/services/service1"}>Service 1 Govind ji</Link>
+              <ul
+                ref={excludeRef}
+                className="absolute top-16 right-0 w-[210px] bg-red-500  text-white px-4 service rounded-b-lg"
+              >
+                <li>
+                  <Link href={"/"}>Digital Marketing</Link>
                 </li>
                 <li>
-                  <Link href={"/services/service2"}>Service 2</Link>
+                  <Link href={"/"}>App Development</Link>
                 </li>
                 <li>
-                  <Link href={"/services/service3"}>Service 3</Link>
+                  <Link href={"/"}>Graphics Designing</Link>
+                </li>
+                <li>
+                  <Link href={"/"}>Website Development</Link>
+                </li>
+                <li>
+                  <Link href={"/"}>Social Media Marketing</Link>
+                </li>
+                <li>
+                  <Link href={"/"}>Search Engine Optimization</Link>
                 </li>
               </ul>
             )}
           </li>
-          <li
-            className={`relative ${
-              isCoursesOpen ? "bg-red-500 text-white" : ""
-            }`}
-          >
-            <button onClick={toggleCourses} className="flex items-center">
-              <p className="btn">Courses</p>
-              <span className="ml-2">{isCoursesOpen ? "▲" : "▼"}</span>
-            </button>
-            {isCoursesOpen && (
-              <ul className=" absolute top-14 right-0 w-[180px] bg-red-500  text-white p-4">
-                <li>
-                  <Link href={"/courses/course1"}>Course 1</Link>
-                </li>
-                <li>
-                  <Link href={"/courses/course2"}>Course 2</Link>
-                </li>
-                <li>
-                  <Link href={"/courses/course3"}>Course 3</Link>
-                </li>
-              </ul>
-            )}
+
+          <li>
+            <Link href={"/"}>Courses</Link>
           </li>
           <li>
             <Link href={"/"}>Career</Link>
@@ -93,7 +99,9 @@ const Navbar = () => {
 
         <div
           className="md:hidden cursor-pointer"
-          onClick={() => setIsMenuOpen(!isMenuOpen)}
+          onClick={() => {
+            setIsMenuOpen(!isMenuOpen), setIsServicesOpen(false);
+          }}
         >
           {isMenuOpen ? (
             <Image
@@ -128,49 +136,37 @@ const Navbar = () => {
             <button
               onClick={toggleServices}
               className={`flex items-center w-full py-2 ${
-                isServicesOpen ? "bg-gray-200" : ""
+                isServicesOpen ? "bg-gray-200 pl-2" : ""
               } `}
             >
               <p className="btn">Services</p>
               <span className="ml-2 ">{isServicesOpen ? "▲" : "▼"}</span>
             </button>
             {isServicesOpen && (
-              <ul className="ml-6">
-                <li className="py-2 hover:text-black">
-                  <Link href={"/services/service1"}>Service 1 Govind ji</Link>
+              <ul className="ml-6 mobile-menu">
+                <li>
+                  <Link href={"/"}>Digital Marketing</Link>
                 </li>
-                <li className="py-2 hover:text-black">
-                  <Link href={"/services/service2"}>Service 2</Link>
+                <li>
+                  <Link href={"/"}>App Development</Link>
                 </li>
-                <li className="py-2 hover:text-black">
-                  <Link href={"/services/service3"}>Service 3</Link>
+                <li>
+                  <Link href={"/"}>Graphics Designing</Link>
+                </li>
+                <li>
+                  <Link href={"/"}>Website Development</Link>
+                </li>
+                <li>
+                  <Link href={"/"}>Social Media Marketing</Link>
+                </li>
+                <li>
+                  <Link href={"/"}>Search Engine Optimization</Link>
                 </li>
               </ul>
             )}
           </li>
           <li className="py-2 w-full">
-            <button
-              onClick={toggleCourses}
-              className={`flex items-center w-full py-2 ${
-                isCoursesOpen ? "bg-gray-200" : ""
-              } `}
-            >
-              <p className="btn">Courses</p>
-              <span className="ml-2">{isCoursesOpen ? "▲" : "▼"}</span>
-            </button>
-            {isCoursesOpen && (
-              <ul className="ml-6">
-                <li className="py-2 hover:text-black">
-                  <Link href={"/courses/course1"}>Course 1</Link>
-                </li>
-                <li className="py-2 hover:text-black">
-                  <Link href={"/courses/course2"}>Course 2</Link>
-                </li>
-                <li className="py-2 hover:text-black">
-                  <Link href={"/courses/course3"}>Course 3</Link>
-                </li>
-              </ul>
-            )}
+            <Link href={"/"}>Courses</Link>
           </li>
           <li className="py-2">
             <Link href={"/"}>Career</Link>

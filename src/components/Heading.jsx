@@ -13,10 +13,10 @@ const Heading = ({ heading, btn1, btn2 }) => {
       </div>
       <h2 className="text-2xl md:text-3xl font-semibold">{heading}</h2>
       <div className="flex gap-2 md:gap-4 font-semibold">
-        <button className="border-2 border-white py-[7px] px-8 rounded">
+        <button className="border-2 border-white py-[7px] px-8 rounded hover:scale-105 hover:border-black transition-all duration-500 hover:bg-gray-100 hover:text-gray-600">
           {btn1}
         </button>
-        <button className="border-2 border-white py-[7px] px-8 rounded">
+        <button className="border-2 border-white py-[7px] px-8 rounded hover:scale-105 hover:border-black transition-all duration-500 hover:bg-gray-100 hover:text-gray-600">
           {btn2}
         </button>
       </div>

@@ -1,6 +1,7 @@
-import Footer from "@/components/Footer";
 import Hero from "@/components/Hero";
 import JoinCourses from "@/components/JoinCourses";
+import Gmap from "@/components/Map";
+import Map from "@/components/Map";
 import PopularArticles from "@/components/PopularArticles";
 import Services from "@/components/Services";
 import React from "react";
@@ -12,7 +13,7 @@ const page = () => {
       <Services />
       <JoinCourses />
       <PopularArticles />
-      <Footer />
+      <Gmap />
     </div>
   );
 };

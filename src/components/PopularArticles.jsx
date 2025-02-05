@@ -1,5 +1,4 @@
 import React from "react";
-import CartItem from "./CartItem";
 import { popular_articles } from "@/assets/assets";
 import CartPopular from "./CartPopular";
 
