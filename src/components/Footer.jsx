@@ -3,8 +3,8 @@ import React from "react";
 
 const Footer = () => {
   return (
-    <div className="bg-red-500 pt-10  text-white">
-      <div className=" container mx-auto pb-8 grid grid-cols-2 md:grid-cols-3 items-center justify-center ">
+    <div className="bg-red-500 pt-6 mt-4 text-white">
+      <div className=" container mx-auto pb-4 grid grid-cols-2 md:grid-cols-3 items-center justify-center ">
         <div className="p-3 md:p-4 flex flex-col gap-2">
           <p className="font-semibold max-sm:text-sm">IMPORTENT LINKS</p>
           <ul className="flex flex-col gap-2">
@@ -22,7 +22,7 @@ const Footer = () => {
             </li>
           </ul>
         </div>
-        <div className="p-3 md:p-4 flex flex-col gap-2">
+        <div className="p-3 md:p-4 flex flex-col gap-2 max-md:ml-auto">
           <p className="font-semibold max-sm:text-sm">GET IN TOUCH</p>
           <ul className="flex flex-col gap-2">
             <li>
@@ -59,7 +59,7 @@ const Footer = () => {
           </ul>
         </div>
       </div>
-      <div className="bg-red-700 py-5 md:py-8">
+      <div className="bg-red-700 py-4 md:py-6">
         <div className=" container mx-auto max-md:text-center max-md:px-2 font-semibold">
           <p>© Digi Friction. All Rights Reserved.</p>
         </div>

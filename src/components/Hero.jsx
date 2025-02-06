@@ -21,11 +21,11 @@ const Hero = () => {
         className="w-full flex md:hidden"
         alt=""
       />
-      <div className="container mx-auto my-6 mdmy-12 flex flex-col gap-3 p-3">
+      <div className="container mx-auto my-2 md:my-6 flex flex-col gap-3 p-3">
         <h1 className="text-red-600 text-2xl md:text-3xl">
           Website Development and Digital Marketing Company in Bareilly
         </h1>
-        <p className="">
+        <p>
           Digi Friction is the most trusted advertising agency in Bareilly that
           deals in web designing, website development, app development, graphics
           designing, digital marketing, and social media marketing services. We

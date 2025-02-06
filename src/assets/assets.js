@@ -3,6 +3,7 @@ import banner_min from "./banner-min.webp";
 import logo from "./logo.png";
 import close from "./close-black.png";
 import openMenu from "./menu-black.png";
+import digital_marketing from "./digital-marketing.webp";
 import { GiWorld } from "react-icons/gi";
 import { FaCamera, FaTools } from "react-icons/fa";
 
@@ -12,6 +13,7 @@ export const assets = {
   close,
   openMenu,
   banner_min,
+  digital_marketing,
 };
 
 export const menu = [

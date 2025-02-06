@@ -3,7 +3,7 @@ import React from "react";
 const Map = () => {
   return (
     <div className="container mx-auto">
-      <div className="w-full bg-white rounded-2xl  overflow-hidden p-4 py-14">
+      <div className="w-full bg-white rounded-2xl overflow-hidden max-sm:px-2 py-4">
         <div>
           <p className="w-full text-center text-2xl pb-5 font-semibold">
             Visit on This Address{" "}
@@ -14,7 +14,7 @@ const Map = () => {
           allowFullScreen
           loading="lazy"
           referrerPolicy="no-referrer-when-downgrade"
-          className="w-full h-[400px] max-sm:h-[350px] rounded-2xl border border-gray-400 shadow-xl"
+          className="w-full h-[400px] max-sm:h-[350px] rounded-2xl border border-gray-400 "
         ></iframe>
       </div>
     </div>

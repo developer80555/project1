@@ -3,7 +3,7 @@ import React from "react";
 const Heading = ({ heading, btn1, btn2 }) => {
   return (
     <div
-      className="flex items-center justify-center flex-col gap-6 bg-red-600 py-10 text-white mb-10 mb:m-16
+      className="flex items-center justify-center flex-col gap-6 bg-red-600 py-8 text-white mb-2 md:mb-4 
     "
     >
       <div className="flex items-center gap-2">

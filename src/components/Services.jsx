@@ -6,7 +6,7 @@ import Heading from "./Heading";
 const Services = () => {
   return (
     <div>
-      <div className=" container mx-auto flex flex-col gap-4 mb-10 p-2 md:mb-14">
+      <div className="container mx-auto flex flex-col gap-4 mb-4 p-2">
         <h2 className="text-2xl md:text-3xl text-red-600 font-semibold">
           Services We offer{" "}
         </h2>
@@ -32,7 +32,7 @@ const Services = () => {
       </div>
 
       <div className="bg-gray-100">
-        <div className=" container mx-auto flex flex-col gap-4 p-2 py-10 md:py-14">
+        <div className=" container mx-auto flex flex-col gap-4 p-2 py-4 md:py-8">
           <h2 className="text-2xl md:text-3xl text-red-600 font-semibold">
             Courses We Offer
           </h2>

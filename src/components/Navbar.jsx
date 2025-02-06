@@ -3,6 +3,8 @@ import { assets } from "@/assets/assets";
 import Image from "next/image";
 import Link from "next/link";
 import React, { useEffect, useRef, useState } from "react";
+import { IoIosArrowDown } from "react-icons/io";
+import { IoIosArrowUp } from "react-icons/io";
 
 const Navbar = () => {
   const [isServicesOpen, setIsServicesOpen] = useState(false);
@@ -12,16 +14,18 @@ const Navbar = () => {
     setIsServicesOpen(!isServicesOpen);
   };
 
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen), setIsServicesOpen(false);
+  };
   const excludeRef = useRef(null);
   useEffect(() => {
     const handleClick = (event) => {
-      // Agr click dropdown ke andar nahi hai tabhi close hoga
       if (
         excludeRef.current &&
         !excludeRef.current.contains(event.target) &&
         isServicesOpen
       ) {
-        setTimeout(() => setIsServicesOpen(false), 100); // Small delay to allow toggle click
+        setTimeout(() => setIsServicesOpen(false), 100);
       }
     };
 
@@ -54,31 +58,32 @@ const Navbar = () => {
           >
             <button onClick={toggleServices} className={`flex items-center`}>
               <p className="btn">Services</p>
-              <span className="ml-2">{isServicesOpen ? "▲" : "▼"}</span>
+              <span className="ml-[3px]">
+                {isServicesOpen ? <IoIosArrowUp /> : <IoIosArrowDown />}
+              </span>
             </button>
             {isServicesOpen && (
               <ul
                 ref={excludeRef}
-                className="absolute top-16 right-0 w-[210px] bg-red-500  text-white px-4 service rounded-b-lg"
+                className="absolute top-16 right-0 w-[210px] bg-red-500 text-white px-4 service rounded-b-lg"
               >
-                <li>
-                  <Link href={"/"}>Digital Marketing</Link>
-                </li>
-                <li>
-                  <Link href={"/"}>App Development</Link>
-                </li>
-                <li>
-                  <Link href={"/"}>Graphics Designing</Link>
-                </li>
-                <li>
-                  <Link href={"/"}>Website Development</Link>
-                </li>
-                <li>
-                  <Link href={"/"}>Social Media Marketing</Link>
-                </li>
-                <li>
-                  <Link href={"/"}>Search Engine Optimization</Link>
-                </li>
+                {[
+                  { name: "Digital Marketing", link: "/digital-marketing" },
+                  { name: "App Development", link: "/" },
+                  { name: "Graphics Designing", link: "/" },
+                  { name: "Website Development", link: "/" },
+                  { name: "Social Media Marketing", link: "/" },
+                  { name: "Search Engine Optimization", link: "/" },
+                ].map((service, index) => (
+                  <li key={index}>
+                    <Link
+                      href={service.link}
+                      onClick={() => setIsServicesOpen(false)}
+                    >
+                      {service.name}
+                    </Link>
+                  </li>
+                ))}
               </ul>
             )}
           </li>
@@ -97,12 +102,7 @@ const Navbar = () => {
           </li>
         </ul>
 
-        <div
-          className="md:hidden cursor-pointer"
-          onClick={() => {
-            setIsMenuOpen(!isMenuOpen), setIsServicesOpen(false);
-          }}
-        >
+        <div className="md:hidden cursor-pointer" onClick={toggleMenu}>
           {isMenuOpen ? (
             <Image
               src={assets.close}
@@ -124,14 +124,20 @@ const Navbar = () => {
       </nav>
 
       {/* Mobileection  */}
-      {isMenuOpen ? (
-        <ul className="md:hidden fixed flex items-start justify-start flex-col w-full text-sm text-gray-600 transition-all duration-700 p-4 shadow-xl bg-white">
-          <li className="py-2">
-            <Link href={"/"}>Home</Link>
-          </li>
-          <li className="py-2">
-            <Link href={"/"}>About</Link>
-          </li>
+      {isMenuOpen && (
+        <ul className="md:hidden fixed flex flex-col items-start w-full text-sm text-gray-600 transition-all duration-700 p-4 shadow-xl bg-white">
+          {[
+            { name: "Home", link: "/" },
+            { name: "About", link: "/" },
+          ].map((item, index) => (
+            <li key={index} className="py-2 w-full">
+              <Link href={item.link} onClick={toggleMenu}>
+                {item.name}
+              </Link>
+            </li>
+          ))}
+
+          {/* Services Dropdown - Placed in the Middle */}
           <li className="w-full">
             <button
               onClick={toggleServices}
@@ -140,46 +146,44 @@ const Navbar = () => {
               } `}
             >
               <p className="btn">Services</p>
-              <span className="ml-2 ">{isServicesOpen ? "▲" : "▼"}</span>
+              <span className="ml-2">
+                {isServicesOpen ? <IoIosArrowUp /> : <IoIosArrowDown />}
+              </span>
             </button>
             {isServicesOpen && (
               <ul className="ml-6 mobile-menu">
-                <li>
-                  <Link href={"/"}>Digital Marketing</Link>
-                </li>
-                <li>
-                  <Link href={"/"}>App Development</Link>
-                </li>
-                <li>
-                  <Link href={"/"}>Graphics Designing</Link>
-                </li>
-                <li>
-                  <Link href={"/"}>Website Development</Link>
-                </li>
-                <li>
-                  <Link href={"/"}>Social Media Marketing</Link>
-                </li>
-                <li>
-                  <Link href={"/"}>Search Engine Optimization</Link>
-                </li>
+                {[
+                  { name: "Digital Marketing", link: "/digital-marketing" },
+                  { name: "App Development", link: "/" },
+                  { name: "Graphics Designing", link: "/" },
+                  { name: "Website Development", link: "/" },
+                  { name: "Social Media Marketing", link: "/" },
+                  { name: "Search Engine Optimization", link: "/" },
+                ].map((service, index) => (
+                  <li key={index}>
+                    <Link href={service.link} onClick={toggleMenu}>
+                      {service.name}
+                    </Link>
+                  </li>
+                ))}
               </ul>
             )}
           </li>
-          <li className="py-2 w-full">
-            <Link href={"/"}>Courses</Link>
-          </li>
-          <li className="py-2">
-            <Link href={"/"}>Career</Link>
-          </li>
-          <li className="py-2">
-            <Link href={"/"}>Contact us</Link>
-          </li>
-          <li className="py-2">
-            <Link href={"/"}>Blog</Link>
-          </li>
+
+          {/* Remaining Menu Items */}
+          {[
+            { name: "Courses", link: "/" },
+            { name: "Career", link: "/" },
+            { name: "Contact us", link: "/" },
+            { name: "Blog", link: "/" },
+          ].map((item, index) => (
+            <li key={index} className="py-2 w-full">
+              <Link href={item.link} onClick={toggleMenu}>
+                {item.name}
+              </Link>
+            </li>
+          ))}
         </ul>
-      ) : (
-        ""
       )}
     </div>
   );

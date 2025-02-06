@@ -5,7 +5,7 @@ import { choose_course } from "@/assets/assets";
 const JoinCourses = () => {
   return (
     <div>
-      <div className=" container p-2 mx-auto flex flex-col gap-4 mb-10 md:mb-14">
+      <div className=" container p-2 mx-auto flex flex-col gap-4 mb-4 ">
         <h2 className="text-2xl md:text-3xl text-red-600 font-semibold">
           Why choose Digi Friction?
         </h2>
