@@ -36,13 +36,15 @@ const Navbar = () => {
   return (
     <div className="shadow-lg sticky  top-0 right-0 bg-white z-10">
       <nav className="top-0 container mx-auto flex items-center justify-between relative max-md:p-2  px-4 ">
-        <Image
-          src={assets.logo}
-          height={0}
-          width={0}
-          alt="logo"
-          className="w-[150px] md:w-[180px]"
-        />
+        <Link href={"/"}>
+          <Image
+            src={assets.logo}
+            height={0}
+            width={0}
+            alt="logo"
+            className="w-[150px] md:w-[180px]"
+          />
+        </Link>
 
         <ul className="hidden md:flex items-center justify-center gap-2">
           <li>
