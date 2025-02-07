@@ -4,6 +4,7 @@ import logo from "./logo.png";
 import close from "./close-black.png";
 import openMenu from "./menu-black.png";
 import digital_marketing from "./digital-marketing.webp";
+import whatsapp_bg from "./whatsapp-bg.jpeg";
 import { GiWorld } from "react-icons/gi";
 import { FaCamera, FaTools } from "react-icons/fa";
 
@@ -14,6 +15,7 @@ export const assets = {
   openMenu,
   banner_min,
   digital_marketing,
+  whatsapp_bg,
 };
 
 export const menu = [

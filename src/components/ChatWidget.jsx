@@ -1,6 +1,8 @@
 "use client";
 import { IoClose } from "react-icons/io5";
 import { useState, useEffect } from "react";
+import { assets } from "@/assets/assets";
+import Image from "next/image";
 
 const ChatWidget = () => {
   const [isChatVisible, setIsChatVisible] = useState(false);
@@ -14,10 +16,23 @@ const ChatWidget = () => {
 
       setTimeout(() => {
         setIsTyping(false);
-        setMessages([{ text: "Hello! How can I help you?", type: "received" }]);
+        setMessages([
+          {
+            text: "Hello! How can I help you? Mr whta do you do today",
+            type: "received",
+          },
+        ]);
       }, 2000);
     }
   }, [isChatVisible]);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsChatVisible(true);
+    }, 5000); // 5 सेकंड बाद true
+
+    return () => clearTimeout(timer); // Cleanup timeout if component unmounts
+  }, []);
 
   return (
     <>
@@ -56,13 +71,27 @@ const ChatWidget = () => {
         </div>
 
         {/* Chat Messages */}
-        <div className="max-h-72 flex-1 p-2.5 overflow-y-auto bg-white">
+        <div
+          className="max-h-72 flex-1 p-2.5 overflow-y-auto relative"
+          style={{
+            backgroundImage: `url(${assets.whatsapp_bg})`,
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+          }}
+        >
+          <Image
+            src={assets.whatsapp_bg}
+            alt="WhatsApp Background"
+            layout="fill"
+            objectFit="cover"
+            className="absolute top-0 left-0 w-full h-full"
+          />
           {messages.map((msg, index) => (
             <div
               key={index}
               className={`max-w-[80%] p-2 mb-2.5 rounded-[7.5px] relative break-words ${
                 msg.type === "received"
-                  ? "bg-[#f1f0f0] self-start"
+                  ? "bg-[#eee2e2] self-start"
                   : "bg-[#dcf8c6] self-end ml-auto"
               }`}
             >
