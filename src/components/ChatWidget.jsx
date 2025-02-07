@@ -1,4 +1,5 @@
 "use client";
+import { IoClose } from "react-icons/io5";
 import { useState, useEffect } from "react";
 
 const ChatWidget = () => {
@@ -8,7 +9,7 @@ const ChatWidget = () => {
 
   useEffect(() => {
     if (isChatVisible) {
-      setMessages([]); // पुरानी चैट क्लियर करें
+      setMessages([]);
       setIsTyping(true);
 
       setTimeout(() => {
@@ -47,10 +48,10 @@ const ChatWidget = () => {
 
           {/* Close Button */}
           <button
-            className="text-xl text-white font-bold hover:text-gray-300"
+            className="text-2xl text-white font-bold hover:text-gray-300 absolute top-2 right-2"
             onClick={() => setIsChatVisible(false)}
           >
-            ×
+            <IoClose />
           </button>
         </div>
 
@@ -80,7 +81,10 @@ const ChatWidget = () => {
         </div>
 
         {/* WhatsApp Button */}
-        <div className="p-2.5 bg-[#f0f0f0] rounded-b-xl">
+        <div
+          className="p-2.5 bg-[#f0f0f0] rounded-b-xl"
+          onClick={() => window.open("https://wa.me/91895088691", "_blank")}
+        >
           <button className="bg-[#25d366] text-white border-none p-2.5 text-sm rounded-xl w-full cursor-pointer transition duration-300 hover:bg-[#128c7e]">
             Chat in WhatsApp
           </button>
