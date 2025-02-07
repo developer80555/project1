@@ -1,3 +1,4 @@
+import ChatWidget from "@/components/ChatWidget";
 import Hero from "@/components/Hero";
 import JoinCourses from "@/components/JoinCourses";
 import Gmap from "@/components/Map";
@@ -14,6 +15,7 @@ const page = () => {
       <JoinCourses />
       <PopularArticles />
       <Gmap />
+      <ChatWidget />
     </div>
   );
 };

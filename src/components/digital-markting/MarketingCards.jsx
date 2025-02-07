@@ -6,6 +6,7 @@ import Map from "../Map";
 const MarketingCards = () => {
   return (
     <div className="flex gap-6 flex-col">
+      
       <div className="shadow-xl rounded-lg  overflow-hidden">
         <h2 className="p-4 bg-gray-200 font-semibold text-2xl">Our Services</h2>
         <ul className="py-2">
@@ -66,7 +67,6 @@ const MarketingCards = () => {
           ))}
         </ul>
       </div>
-
       {/* Map  */}
       <Map />
     </div>
