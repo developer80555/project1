@@ -91,7 +91,7 @@ const Navbar = () => {
           </li>
 
           <li>
-            <Link href={"/"}>Courses</Link>
+            <Link href={"/courses"}>Courses</Link>
           </li>
           <li>
             <Link href={"/"}>Career</Link>
@@ -174,7 +174,7 @@ const Navbar = () => {
 
           {/* Remaining Menu Items */}
           {[
-            { name: "Courses", link: "/" },
+            { name: "Courses", link: "/courses" },
             { name: "Career", link: "/" },
             { name: "Contact us", link: "/" },
             { name: "Blog", link: "/" },

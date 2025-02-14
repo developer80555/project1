@@ -29,9 +29,9 @@ const ChatWidget = () => {
   useEffect(() => {
     const timer = setTimeout(() => {
       setIsChatVisible(true);
-    }, 5000); // 5 सेकंड बाद true
+    }, 5000);
 
-    return () => clearTimeout(timer); // Cleanup timeout if component unmounts
+    return () => clearTimeout(timer);
   }, []);
 
   return (
