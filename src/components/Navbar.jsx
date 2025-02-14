@@ -9,6 +9,7 @@ import { IoIosArrowUp } from "react-icons/io";
 const Navbar = () => {
   const [isServicesOpen, setIsServicesOpen] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [lastScrollY, setLastScrollY] = useState(0);
 
   const toggleServices = () => {
     setIsServicesOpen(!isServicesOpen);
@@ -32,6 +33,21 @@ const Navbar = () => {
     document.body.addEventListener("click", handleClick);
     return () => document.body.removeEventListener("click", handleClick);
   }, [isServicesOpen]);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY;
+      if (currentScrollY < lastScrollY) {
+        setIsMenuOpen(false);
+      } else {
+        setIsMenuOpen(false);
+      }
+      setLastScrollY(currentScrollY);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [lastScrollY]);
 
   return (
     <div className="shadow-lg sticky  top-0 right-0 bg-white z-10">
@@ -110,7 +126,7 @@ const Navbar = () => {
               src={assets.close}
               width={10}
               height={10}
-              className="w-6 mr-4"
+              className="w-4 mr-4"
               alt="close"
             />
           ) : (
@@ -118,7 +134,7 @@ const Navbar = () => {
               src={assets.openMenu}
               width={10}
               height={10}
-              className="w-6 mr-4"
+              className="w-4 mr-4"
               alt="close"
             />
           )}

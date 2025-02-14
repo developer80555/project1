@@ -23,7 +23,7 @@ export default function Courses() {
 
   console.log(data.length);
   return (
-    <div>
+    <div className="pb-4">
       <div className="relative w-full h-[200px]">
         <Image
           src={assets.banner}
